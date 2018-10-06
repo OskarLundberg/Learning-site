@@ -9,12 +9,15 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
-#class Step(models.Model):
-    #title = models.CharField(max_length=255)
-    #description = models.TextField()
-    #order = models.IntegerField(default=0)
-    #course = models.ForeignKey(Course)
+class Step(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    order = models.IntegerField(default=0)
+    course = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
+    # on_delete=models.CASCADE
+    # https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.ForeignKey
 
-    #def __str__(self):
-        #return self.title
+
+    def __str__(self):
+        return self.title
 
