@@ -17,6 +17,9 @@ class Step(models.Model):
     # on_delete=models.CASCADE
     # https://docs.djangoproject.com/en/1.11/ref/models/fields/#django.db.models.ForeignKey
 
+    class Meta:
+        ordering = ["order",]
+
 
     def __str__(self):
         return self.title
