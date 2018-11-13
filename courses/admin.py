@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
 from .models import Course, Step
 
-#  finns TabularInLine  |  StackedInLine
+#  finns TabularInline  |  StackedInline
 class StepInline(admin.StackedInline):
     model = Step
 
@@ -11,6 +10,6 @@ class StepInline(admin.StackedInline):
 class CourseAdmin(admin.ModelAdmin):
     inlines = [StepInline,]
 
-
+# Register your models here.
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Step)
