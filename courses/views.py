@@ -5,13 +5,15 @@ from .models import Course, Step
 
 def course_list(request):
     courses = Course.objects.all()
-    return render(request, "courses/course_list.html", {"courses": courses})
+    email = "questions@learningsite.com"
+    return render(request, "courses/course_list.html", {"courses": courses, "email": email})
 
 
 def course_detail(request, pk):
     # course = Course.objects.get(pk=pk)
     course = get_object_or_404(Course, pk=pk)
-    return render(request, "courses/course_detail.html", {"course": course})
+    step_count =  len(course.step_set.all())
+    return render(request, "courses/course_detail.html", {"course": course, "step_count": step_count})
 
 
 def step_detail(request, course_pk, step_pk):
