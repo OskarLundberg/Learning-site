@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from django.conf import settings
-from django.views.static import serve
+from django.conf import settings  # I have forgot what this does. Unused?
+from django.views.static import serve  # I have forgot what this does. Unused?
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
